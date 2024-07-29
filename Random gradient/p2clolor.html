@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="p2.css">
+</head>
+<body>
+    <section>
+        <div id="but">
+            <button class="mbtn">#051937</button>
+            <button class="mbtn2">#008793</button>
+        </div>
+        <h2>copy your code</h2>
+        <div id="bgcopy">
+         
+            backround-image: linear-gradient(to right, rgb(255,255,255), rgb(255,255,255));
+        
+    
+        </div>
+    </section>
+   
+    <script>
+
+        var btn1=document.querySelector(".mbtn");
+        var btn2=document.querySelector(".mbtn2");
+        var bgcopy=document.getElementById("bgcopy");
+        var rgb1= "#ffff"
+        var rgb2= "#gggg"
+        var hexv = () => {
+            var hex = "0123456789abcdef";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color = color + hex[Math.floor(Math.random() * 16)];
+           
+                
+            }    return color;
+        };
+        var butt1 = () => {
+        rgb1=   hexv();
+        
+         console.log(rgb1);
+       
+         document.body.style.backgroundImage = `linear-gradient(to right , ${rgb1} ,${rgb2})`;
+         bgcopy.innerHTML=`Background-image: linear-gradient(to right top, ${rgb1} ,${rgb2} );`
+         btn1.innerText = rgb1;
+         
+      
+        };
+        var butt2 = () => {
+         rgb2=   hexv();
+         
+         console.log(rgb2);
+       
+         document.body.style.backgroundImage = `linear-gradient(to right , ${rgb1} , ${rgb2})`;
+         bgcopy.innerHTML=`Background-image: linear-gradient(to right top,${rgb1} , ${rgb2});`
+         btn2.innerText = rgb2;
+ 
+        
+        };
+        const bgfun = () => {
+            navigator.clipboard.writeText(bgcopy.innerText);
+            alert("clipboard");
+        };
+        
+btn1.addEventListener("click", butt1);
+btn2.addEventListener("click", butt2);
+bgcopy.addEventListener("click", bgfun);
+    </script>
+</body>
+</html>
